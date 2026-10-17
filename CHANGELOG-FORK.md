@@ -8,6 +8,34 @@ diffing this tree against upstream at both the `v3.9.2` tag and `main` (3.10.0).
 
 ---
 
+## Screenshots
+
+**Lock screen**
+| Lock screen options | Live wallpaper |
+| --- | --- |
+| ![Lock screen options](docs/screenshots/lockscreen-options.png) | ![Live wallpaper on the lock screen](docs/screenshots/lockscreen-live-wallpaper.png) |
+
+**Desktop & taskbar**
+| Taskbar with live wallpaper | Custom app icons |
+| --- | --- |
+| ![Taskbar live wallpaper](docs/screenshots/taskbar-live-wallpaper.png) | ![Custom app icons](docs/screenshots/custom-icons.png) |
+
+**Bloom Tools**
+| Media controls | Tools shortcut |
+| --- | --- |
+| ![Bloom Tools media controls](docs/screenshots/bloom-tools-media.png) | ![Bloom Tools shortcut](docs/screenshots/bloom-tools-shortcut.png) |
+
+**Other**
+| Find a program | System check |
+| --- | --- |
+| ![Find a program](docs/screenshots/find-program.png) | ![System check](docs/screenshots/system-check.png) |
+
+**Live wallpaper demos (video)**
+- [Lock screen live wallpaper (mp4)](docs/screenshots/lockscreen-live-wallpaper-demo.mp4)
+- [Taskbar live wallpaper (mp4)](docs/screenshots/taskbar-live-wallpaper-demo.mp4)
+
+---
+
 ## 1. In-app Lock Screen — entirely new
 
 New window, page and settings tab: `lock.html`, `src/lock-main.tsx`, `src/LockScreen.tsx`,
