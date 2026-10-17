@@ -7,6 +7,11 @@
 
 # Bloom
 
+> **Personal fork** — based on upstream [`v3.9.2`](https://github.com/SehajveerSingh2005/bloom.git).
+> See [CHANGELOG-FORK.md](./CHANGELOG-FORK.md) for the features added in this copy
+> (in-app lock screen, night light, clock widget, Bloom Tools, custom icon library,
+> taskbar background, and more).
+
 <br/>
 
 <!-- HERO SHOWCASE — full-width cinematic shot or video -->
