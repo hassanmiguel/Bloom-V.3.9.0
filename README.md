@@ -35,6 +35,36 @@ This wakes it up.
 
 ---
 
+## Screenshots
+
+**Lock screen**
+
+| Lock screen options | Live wallpaper |
+| --- | --- |
+| <img src="docs/screenshots/lockscreen-options.png" width="440"> | <img src="docs/screenshots/lockscreen-live-wallpaper.png" width="440"> |
+
+**Taskbar & icons**
+
+| Taskbar with live wallpaper | Custom app icons |
+| --- | --- |
+| <img src="docs/screenshots/taskbar-live-wallpaper.png" width="440"> | <img src="docs/screenshots/custom-icons.png" width="440"> |
+
+**Bloom Tools**
+
+| Media controls | Tools shortcut |
+| --- | --- |
+| <img src="docs/screenshots/bloom-tools-media.png" width="440"> | <img src="docs/screenshots/bloom-tools-shortcut.png" width="440"> |
+
+**More**
+
+| Find a program | System check |
+| --- | --- |
+| <img src="docs/screenshots/find-program.png" width="440"> | <img src="docs/screenshots/system-check.png" width="440"> |
+
+**Live wallpaper demos (video):** [lock screen](docs/screenshots/lockscreen-live-wallpaper-demo.mp4) · [taskbar](docs/screenshots/taskbar-live-wallpaper-demo.mp4)
+
+---
+
 ## The Island
 
 <!-- SHOWCASE: GIF or short clip — Island expanding, cycling through modes (3-5s) -->
