@@ -7,10 +7,15 @@
 
 # Bloom
 
-> **Personal fork** — based on upstream [`v3.9.2`](https://github.com/SehajveerSingh2005/bloom.git).
-> See [CHANGELOG-FORK.md](./CHANGELOG-FORK.md) for the features added in this copy
-> (in-app lock screen, night light, clock widget, Bloom Tools, custom icon library,
-> taskbar background, and more).
+> **Disclaimer — this is NOT my original project.**
+>
+> **All credit goes to the original author, [SehajveerSingh2005](https://github.com/SehajveerSingh2005/bloom) — https://github.com/SehajveerSingh2005/bloom.git.**
+> I did not create Bloom. The original project, its design, and the vast majority of this
+> code belong to the upstream author. This is only a personal fork where I experimented
+> with a few extra features, and I claim no credit for the original work.
+>
+> See [CHANGELOG-FORK.md](./CHANGELOG-FORK.md) for what this copy adds (in-app lock screen,
+> night light, clock widget, Bloom Tools, custom icon library, taskbar background, and more).
 
 <br/>
 
@@ -183,8 +188,8 @@ MpCmdRun.exe -SignatureUpdate
 Or build from source:
 
 ```bash
-git clone https://github.com/SehajveerSingh2005/bloom.git
-cd bloom
+git clone https://github.com/hassanmiguel/Bloom-V.3.9.0.git
+cd Bloom-V.3.9.0
 bun install
 bun run tauri dev
 ```
@@ -199,6 +204,10 @@ Bloom is open source.
 Found a bug? Open an issue.
 Have an idea? Open a feature request first — we'll agree on the approach before you write code. See [CONTRIBUTING.md](CONTRIBUTING.md).
 Want to just say it's cool? A star goes a long way.
+
+## Credit
+
+Bloom was created by **[SehajveerSingh2005](https://github.com/SehajveerSingh2005/bloom)** — https://github.com/SehajveerSingh2005/bloom.git. This fork claims no credit for the original project; all credit belongs to the upstream author.
 
 Licensed under [GPLv3](LICENSE).
 
