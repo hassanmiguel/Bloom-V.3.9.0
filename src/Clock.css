@@ -1,0 +1,221 @@
+html,
+body,
+#root {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	overflow: hidden;
+}
+
+.clock-root {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	background: transparent;
+}
+
+/* ── Widget shell ─────────────────────────────────────────── */
+
+.clock-widget {
+	--rx: 0deg;
+	--ry: 0deg;
+	position: relative;
+	pointer-events: auto;
+	cursor: grab;
+	border-radius: calc(var(--k, 1) * 24px);
+	padding: calc(var(--k, 1) * 18px) calc(var(--k, 1) * 22px);
+	background: linear-gradient(145deg, #2a2057 0%, #140f2c 58%, #1c1541 100%);
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	box-shadow:
+		0 calc(var(--k, 1) * 20px) calc(var(--k, 1) * 44px) rgba(0, 0, 0, 0.5),
+		inset 0 1px 0 rgba(255, 255, 255, 0.22);
+	overflow: hidden;
+	transform: perspective(calc(var(--k, 1) * 1100px)) rotateX(calc(-6deg + var(--rx)))
+		rotateY(var(--ry));
+	transition:
+		transform 0.18s ease-out,
+		box-shadow 0.2s ease;
+	user-select: none;
+	touch-action: none;
+	will-change: transform;
+}
+
+.clock-widget::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), transparent 34%);
+	pointer-events: none;
+}
+
+.clock-widget.dragging {
+	cursor: grabbing;
+	transition: none;
+	box-shadow:
+		0 calc(var(--k, 1) * 28px) calc(var(--k, 1) * 60px) rgba(0, 0, 0, 0.6),
+		inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.clock-widget.has-wallpaper {
+	background: #0c0a18;
+}
+
+/* ── Layers ───────────────────────────────────────────────── */
+
+.clock-wallpaper {
+	position: absolute;
+	inset: 0;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	filter: saturate(1.15);
+	transform: scale(1.04);
+	pointer-events: none;
+}
+
+.clock-scrim {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(160deg, rgba(26, 14, 54, 0.24), rgba(6, 5, 16, 0.66));
+	pointer-events: none;
+}
+
+.clock-widget:not(.has-wallpaper) .clock-scrim {
+	opacity: 0.4;
+}
+
+.clock-sheen {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(120deg, rgba(255, 255, 255, 0.18), transparent 44%);
+	mix-blend-mode: screen;
+	pointer-events: none;
+}
+
+.clock-content {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: calc(var(--k, 1) * 13px);
+}
+
+.clock-row {
+	display: flex;
+	align-items: center;
+}
+
+/* ── Flip digits ──────────────────────────────────────────── */
+
+.flip-group {
+	display: flex;
+	gap: calc(var(--k, 1) * 8px);
+}
+
+.flip-digit {
+	position: relative;
+	width: calc(var(--k, 1) * 60px);
+	height: calc(var(--k, 1) * 82px);
+	border-radius: calc(var(--k, 1) * 13px);
+	background: linear-gradient(180deg, #33304a 0%, #121019 52%, #1b1828 100%);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.14),
+		inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+		0 calc(var(--k, 1) * 4px) calc(var(--k, 1) * 10px) rgba(0, 0, 0, 0.35);
+	perspective: calc(var(--k, 1) * 420px);
+	overflow: hidden;
+}
+
+.flip-digit-value {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(var(--k, 1) * 50px);
+	font-weight: 700;
+	line-height: 1;
+	color: #ffffff;
+	text-shadow:
+		0 0 calc(var(--k, 1) * 18px) rgba(150, 130, 255, 0.55),
+		0 calc(var(--k, 1) * 2px) calc(var(--k, 1) * 4px) rgba(0, 0, 0, 0.55);
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+}
+
+.flip-digit-seam {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	height: calc(var(--k, 1) * 2px);
+	background: rgba(0, 0, 0, 0.55);
+	box-shadow: 0 calc(var(--k, 1) * 1px) 0 rgba(255, 255, 255, 0.07);
+	transform: translateY(-50%);
+	z-index: 2;
+	pointer-events: none;
+}
+
+/* ── Colon ────────────────────────────────────────────────── */
+
+.clock-colon {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: calc(var(--k, 1) * 12px);
+	padding: 0 calc(var(--k, 1) * 6px);
+}
+
+.clock-colon-dot {
+	width: calc(var(--k, 1) * 9px);
+	height: calc(var(--k, 1) * 9px);
+	border-radius: 50%;
+	background: #ffffff;
+	box-shadow: 0 0 calc(var(--k, 1) * 9px) rgba(255, 255, 255, 0.75);
+	animation: clock-blink 2s steps(1, end) infinite;
+}
+
+.clock-colon.compact .clock-colon-dot {
+	width: calc(var(--k, 1) * 6px);
+	height: calc(var(--k, 1) * 6px);
+}
+
+@keyframes clock-blink {
+	0%,
+	49% {
+		opacity: 1;
+	}
+	50%,
+	100% {
+		opacity: 0.25;
+	}
+}
+
+/* ── Sub line (AM/PM + date) ──────────────────────────────── */
+
+.clock-sub {
+	display: flex;
+	align-items: center;
+	gap: calc(var(--k, 1) * 10px);
+	font-size: calc(var(--k, 1) * 13px);
+	letter-spacing: calc(var(--k, 1) * 0.6px);
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.85);
+	text-shadow: 0 calc(var(--k, 1) * 1px) calc(var(--k, 1) * 3px) rgba(0, 0, 0, 0.65);
+}
+
+.clock-ampm {
+	font-weight: 700;
+	opacity: 0.92;
+}
+
+.clock-date {
+	font-weight: 500;
+}

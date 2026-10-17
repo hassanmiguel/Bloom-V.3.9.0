@@ -1,0 +1,53 @@
+# Contributing to Bloom
+
+Thanks for wanting to help. Bloom is a Windows desktop companion built with Tauri — a Rust core and a React/TypeScript UI.
+
+## Before you start
+
+**Issues come first.** Bloom is a small project, so unsolicited feature PRs are hard to keep up with — however good the code is.
+
+- Bugs and feature ideas go through the issue templates. They keep triage automatic.
+- For anything large (new features, behavior changes, refactors, new dependencies), open an issue and wait for a maintainer to agree on the approach before writing code.
+- PRs that implement an unapproved feature may be closed without review. Please don't take it personally; it isn't a comment on your code.
+- Small fixes (typos, docs, crash fixes with an obvious cause) can go straight to a pull request with a clear description.
+
+## Setup
+
+Requirements:
+
+- Windows 10 or 11
+- [Bun](https://bun.sh) 1.4+
+- Rust stable
+- Visual Studio C++ build tools (required by Tauri)
+
+```bash
+bun install
+bun run tauri dev
+```
+
+Useful commands:
+
+| Command               | What it does                          |
+| --------------------- | ------------------------------------- |
+| `bun run build`       | Typecheck and build the frontend      |
+| `bun run tauri build` | Build the full app                    |
+| `bun run bump <ver>`  | Bump the version in all manifests     |
+| `bun run format`      | Formats the frontend and backend code |
+
+## Making changes
+
+- Branch from `main` and keep each pull request focused on one change.
+- Match the existing code style. Do not add dependencies unless they are really needed.
+- Commit messages follow conventional commits (`feat:`, `fix:`, `chore:`), because release notes are generated from them.
+- Test your change on Windows before opening the PR — this is a Windows-first app.
+
+## Pull requests
+
+- Every feature or behavior-change PR must link the approved issue it implements (`Closes #123`). If there is no issue yet, open one and discuss the approach first.
+- CI must pass (frontend build, `cargo check`, clippy, CodeQL).
+- Fill in the PR template: what changed, which issue it closes, and how you tested it.
+- Keep the diff readable. Unrelated cleanups belong in a separate PR.
+
+## License
+
+Bloom is licensed under GPL-3.0. By contributing, you agree that your contributions are licensed under the same terms.
